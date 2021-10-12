@@ -3,28 +3,32 @@ let row = document.createElement("div");
 row.classList.add("row", "row-cols-6", "g-3");
 
 for (let i = 1; i <= 100; i++) {
+  let cellContainer = document.createElement("div");
+  cellContainer.classList.add("col");
   let cell = document.createElement("div");
-  cell.classList.add("col");
-  let cellRatio = document.createElement("div");
-  cellRatio.classList.add("ratio", "cell");
+  cell.classList.add("cell", "ratio-1x1");
   let cellContent = document.createElement("div");
   cellContent.textContent = i;
-  if (i % 3 === 0 && i % 5 === 0) {
-    cellRatio.classList.add("fizzbuzz");
+
+  multipleOf3 = i % 3 === 0;
+  multipleOf5 = i % 5 === 0;
+  if (multipleOf3 && multipleOf5) {
+    cell.classList.add("fizzbuzz");
     cellContent.textContent = "FizzBuzz";
   } else {
-    if (i % 3 === 0) {
-      cellRatio.classList.add("fizz");
+    if (multipleOf3) {
+      cell.classList.add("fizz");
       cellContent.textContent = "Fizz";
     }
-    if (i % 5 === 0) {
-      cellRatio.classList.add("buzz");
+    if (multipleOf5) {
+      cell.classList.add("buzz");
       cellContent.textContent = "Buzz";
     }
   }
-  cellRatio.append(cellContent);
-  cell.append(cellRatio);
-  row.append(cell);
+
+  cell.append(cellContent);
+  cellContainer.append(cell);
+  row.append(cellContainer);
 }
 
 container.append(row);
