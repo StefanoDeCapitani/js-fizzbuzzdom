@@ -1,1 +1,23 @@
+body {
+  background-color: #083b4c;
+}
 
+main .container {
+  color: #083b4c;
+}
+
+.normal {
+  background-color: #1389b2;
+}
+
+.fizz {
+  background-color: #0bd6a1;
+}
+
+.buzz {
+  background-color: #ffd166;
+}
+
+.fizzbuzz {
+  background-color: #f0466f;
+}
