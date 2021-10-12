@@ -1,9 +1,65 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
 body {
   background-color: #083b4c;
 }
 
-main .container {
+.header {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.header h1 {
+  font-size: clamp(1.8rem, 1vw, 4rem);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main .container {
   color: #083b4c;
+  width: 80%;
+  max-width: 992px;
+}
+
+.row {
+  --gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(-1 * var(--gap));
+}
+
+.col {
+  width: calc(100% / 3);
+  padding: var(--gap);
+}
+
+.ratio {
+  content: "";
+  padding-top: 100%;
+  height: 0;
+  position: relative;
+}
+
+.ratio > * {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 .cell {
@@ -20,4 +76,20 @@ main .container {
 
 .fizzbuzz {
   background-color: #f0466f;
+}
+
+.text-white {
+  color: #fff;
+}
+
+@media screen and (min-width: 576px) {
+  .col {
+    width: calc(100% / 5);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .col {
+    width: calc(100% / 7);
+  }
 }
